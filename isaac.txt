@@ -1,0 +1,8 @@
+add a parry function
+
+add unlocable abilities
+
+add unlimited number of rings
+
+fix rings not spawning bug
+

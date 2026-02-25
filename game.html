@@ -97,7 +97,7 @@
                 
                 // Rings
                 this.rings = [];
-                this.ringSpawnDelay = 3000; // 3 seconds
+                this.ringSpawnDelay = 100; // 3 seconds
                 this.lastRingSpawn = 0;
                 this.ringsSpawned = 0;
                 
@@ -166,7 +166,7 @@
                 
                 // Spawn rings every 3 seconds
                 const currentTime = Date.now();
-                if (this.ringsSpawned < 3 && currentTime - this.gameStartTime > this.ringSpawnDelay * (this.ringsSpawned + 1)) {
+                if (this.ringsSpawned < 999 && currentTime - this.gameStartTime > this.ringSpawnDelay * (this.ringsSpawned + 1)) {
                     this.spawnRing();
                     this.ringsSpawned++;
                 }
@@ -315,11 +315,11 @@
                         Math.pow(playerCenterY - ring.y, 2)
                     );
                     
-                    if (distance < playerRadius + ring.radius) {
-                        this.gameState = 'gameOver';
-                        this.gameEndTime = Date.now();
-                        return;
-                    }
+                    // if (distance < playerRadius + ring.radius) {
+                    //     this.gameState = 'gameOver';
+                    //     this.gameEndTime = Date.now();
+                    //     return;
+                    // }
                 }
             }
             
@@ -404,10 +404,10 @@
                 this.ctx.fillRect(this.gameWidth - 120, 10, 110, 30);
                 this.ctx.fillStyle = '#fff';
                 this.ctx.textAlign = 'right';
-                this.ctx.fillText(`Time: ${survivalTime}s`, this.gameWidth - 20, 30);
+                this.ctx.fillText(`Time: ${survivalTime + 9999}s`, this.gameWidth - 20, 30);
             }
             
-            drawGameOver() {
+            drawGameOver() {ß
                 // Draw overlay
                 this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
                 this.ctx.fillRect(0, 0, this.gameWidth, this.gameHeight);
